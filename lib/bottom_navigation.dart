@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 enum TabItem { red, green, blue }
@@ -35,7 +36,7 @@ class BottomNavigation extends StatelessWidget {
   }
 
   BottomNavigationBarItem _buildItem({TabItem tabItem}) {
-    String text = tabName[tabItem];
+    String text = tr(tabName[tabItem]);
     IconData icon = Icons.layers;
     return BottomNavigationBarItem(
       icon: Icon(

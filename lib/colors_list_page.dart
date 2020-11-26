@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class ColorsListPage extends StatelessWidget {
@@ -11,9 +12,17 @@ class ColorsListPage extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text(
-            title,
+            title.tr(),
           ),
           backgroundColor: color,
+          actions: [
+            IconButton(
+                icon: Icon(Icons.settings),
+                onPressed: () {
+                  Navigator.of(context, rootNavigator: true)
+                      .pushNamed('/settings');
+                })
+          ],
         ),
         body: Container(
           color: Colors.white,
@@ -21,7 +30,18 @@ class ColorsListPage extends StatelessWidget {
         ));
   }
 
-  final List<int> materialIndices = [900, 800, 700, 600, 500, 400, 300, 200, 100, 50];
+  final List<int> materialIndices = [
+    900,
+    800,
+    700,
+    600,
+    500,
+    400,
+    300,
+    200,
+    100,
+    50
+  ];
 
   Widget _buildList() {
     return ListView.builder(
